@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "healthpixel-audit"
+version = "0.1.0"
+description = "Check what a health-care website sends to advertising and analytics platforms, before and after cookie consent."
+readme = "README.md"
+license = "MIT"
+authors = [{ name = "Denis Alekseev", email = "research@healthpixelcheck.org" }]
+requires-python = ">=3.10"
+dependencies = ["playwright>=1.40", "tldextract>=5.1", "dnspython>=2.6"]
+keywords = ["privacy", "tracking", "health care", "hipaa", "pixel", "consent", "cookie banner",
+            "global privacy control", "playwright", "audit"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Healthcare Industry",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Internet :: WWW/HTTP :: Browsers",
+    "Topic :: Security",
+    "Topic :: Software Development :: Testing",
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.urls]
+Homepage = "https://healthpixelcheck.org"
+Documentation = "https://healthpixelcheck.org/methodology/"
+Source = "https://github.com/healthpixelcheck/healthpixel-audit"
+Issues = "https://github.com/healthpixelcheck/healthpixel-audit/issues"
+
+[project.scripts]
+healthpixel-audit = "healthpixel_audit.cli:main"
+
+[tool.setuptools]
+packages = ["healthpixel_audit"]
+
+[tool.setuptools.package-data]
+healthpixel_audit = ["thirdparty/*/*", "thirdparty/README.md"]
